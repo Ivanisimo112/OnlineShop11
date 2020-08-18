@@ -1,5 +1,6 @@
 package dao.impl;
 
+import model.Product;
 import org.apache.log4j.Logger;
 import dao.UserDao;
 import model.User;
@@ -29,6 +30,12 @@ public class UserDaoImpl implements UserDao {
                 userList.remove(userList.get(i));
             }
         }
+    }
+
+
+    @Override
+    public void addBasket(Product product,User user) {
+        user.getBasket().add(product);
     }
 
     public void addUser(User user) {

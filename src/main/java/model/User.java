@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -7,6 +8,7 @@ public class User {
     private String email;
     private String password;
     private String role;
+    private List<Product> basket;
 
     public String getRole() {
         return role;
@@ -14,6 +16,15 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+
+    public List<Product> getBasket() {
+        return basket;
+    }
+
+    public void setBasket(List<Product> basket) {
+        this.basket = basket;
     }
 
     public User(Long id, String email, String password, String role) {

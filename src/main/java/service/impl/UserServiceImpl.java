@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import model.Product;
 import model.User;
 import service.UserService;
 
@@ -13,6 +14,11 @@ public class UserServiceImpl implements UserService {
 
     public void addUser(User user) {
         userDao.addUser(user);
+    }
+
+    @Override
+    public void addBasket(Product product,User user) {
+        user.getBasket().add(product);
     }
 
     @Override

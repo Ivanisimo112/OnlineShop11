@@ -21,6 +21,6 @@
         </c:forEach>
 </center>
 </table><br><br>
-<a href="addProduct">SHOPPING BASKET</a><br><br>
+<a href="payment.jsp">PAYMENT</a><br><br>
 </body>
 </html>

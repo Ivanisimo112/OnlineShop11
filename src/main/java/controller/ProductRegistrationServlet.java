@@ -47,7 +47,5 @@ public class ProductRegistrationServlet extends HttpServlet {
             req.setAttribute("error2","You have not completed all the fields");
             req.getRequestDispatcher("addProduct.jsp").forward(req,resp );
         }
-
-
     }
 }
