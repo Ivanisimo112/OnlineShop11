@@ -6,7 +6,6 @@
 <body>
 <center>
     Welcom!!<br><br>
-`
     <a href="login">Come in</a><br><br>
     <a href="register">Register</a><br><br>
 </center>

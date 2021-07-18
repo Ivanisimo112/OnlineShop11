@@ -29,16 +29,21 @@ public class LoggingServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         Optional<User> optUser = userService.findUserByEmail(email);
-        if (optUser.isPresent() && optUser.get().getPassword().equals(password)) {
-            HttpSession session = req.getSession();
-            session.setAttribute("user", optUser.get());
-            if (optUser.get().getRole().equals("admin")) {
-                resp.sendRedirect("/users");
-            } else {
-                resp.sendRedirect("/products");
-            }
+        if (!userService.findUserByEmail(email).isPresent()) {
+            req.setAttribute("error3", "You are not registred");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/");
+            if (optUser.isPresent() && optUser.get().getPassword().equals(password)) {
+                HttpSession session = req.getSession();
+                session.setAttribute("user", optUser.get());
+                if (optUser.get().getRole().equals("admin")) {
+                    resp.sendRedirect("/users");
+                } else {
+                    resp.sendRedirect("/products");
+                }
+            } else {
+                resp.sendRedirect("/");
+            }
         }
     }
 }

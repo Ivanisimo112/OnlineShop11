@@ -1,3 +1,4 @@
+<%@ page import="model.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -10,16 +11,17 @@
         <c:forEach var="product" items="${basket}">
             <tr>
                 <td>${product.name}</td>
-                <td>${product.discriptional}</td>
+                <td>${product.description}</td>
                 <td>${product.price}</td>
             </tr>
         </c:forEach>
     </table>
     Email <input name="email" type="email"/><br><br>
     Card code<input name="card" type="number"><br><br>
-    amount to pay <c></c>
     <br><br>
-    <a href="products">PAY</a><br><br>
+    <form action="payment" method="post">
+        <button type="submit">PAY</button>
+    </form>
 </center>
 </body>
 </html>

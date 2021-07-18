@@ -6,6 +6,7 @@ import model.Product;
 import model.User;
 import service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
     public void addBasket(Product product,User user) {
         user.getBasket().add(product);
     }
+
 
     @Override
     public Optional<User> findUserByEmail(String email) {

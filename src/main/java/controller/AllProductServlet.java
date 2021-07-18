@@ -24,12 +24,8 @@ public class AllProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User userFromSession = (User) req.getSession().getAttribute("user");
         List<Product> allProducts = productService.getAll();
         req.setAttribute("allProducts", allProducts);
-        if (userFromSession != null && userFromSession.getBasket() != null) {
-            req.setAttribute("basket", userFromSession.getBasket());
-        }
         req.getRequestDispatcher("products.jsp").forward(req, resp);
     }
 
@@ -40,9 +36,10 @@ public class AllProductServlet extends HttpServlet {
         User userFromSession = (User) req.getSession().getAttribute("user");
         String name = req.getParameter("name");
         double price = Double.parseDouble(req.getParameter("price"));
-        String discriptional = req.getParameter("discriptional");
-        double productQuantity = Double.parseDouble(req.getParameter("productQuantity"));
-        userService.addBasket(new Product(0, name, discriptional, price, productQuantity),userFromSession);
+        String description = req.getParameter("description");
+        //double productQuantity = Double.parseDouble(req.getParameter("productQuantity"));
+        userService.addBasket(new Product(0, name, description, price, 1),userFromSession);
         resp.sendRedirect("/products");
+
     }
 }

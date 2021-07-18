@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,7 +9,7 @@ public class User {
     private String email;
     private String password;
     private String role;
-    private List<Product> basket;
+    private List<Product> basket = new ArrayList<>();
 
     public String getRole() {
         return role;
